@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>cafe shop</title>
+</head>
+<body>
+    <div class="continer">
+       <div class="mainer">
+        <header class="header">
+            <nav class="nav-bar">
+               <div class="log">
+                <ion-icon name="cafe-sharp" class="cafe"></ion-icon>
+                <p class="brew">Brew<span>tique</span></p>
+               </div>
+               <button class="nav-toggle" id="navToggle">☰</button>
+               <div class="home">
+                <ul id="navMenu">
+                    <li><a href="#" class="home-link">Home</a></li>
+                    <li><a href="#">Our product</a></li>
+                    <li><a href="#">Delivery</a></li>
+                </ul>
+               </div>
+               <div class="search">
+                <input type="text"  placeholder="search" class="input">
+                <ion-icon name="search-outline" class="outline"></ion-icon>
+                <a href="checkout.html" id="cart-icon"> 
+                    <ion-icon name="cart-outline" class="cart"></ion-icon>
+                    <div class="cart-count" id="cart-count">0</div>
+                </a>
+               
+               </div>
+            </nav>
+
+            <div class="cappasion"> 
+                <h4>Cappuccion</h4>
+               
+            </div>
+
+            <div class="star">
+                <h4>4.5</h4>
+                <ion-icon name="star" class="star-yellow"></ion-icon>
+            </div>
+
+            <div class="grade">
+                <h4>18K</h4>
+            </div>
+
+            <div class="header-info">
+                <h3>Enjoy your <span>coffe</span> <br> before your activity</h3>
+                <p>Boot your productivity and build <br> mood with a glass of coffeein the morning</p>
+
+                <div class="link-submit">
+                   <div>
+                    <button type="submit">
+                        Order now 
+                    </button>
+                    <ion-icon name="cart-outline" class="cart1"></ion-icon>
+
+                   </div>
+                    <a href="">More menu</a>
+                </div>
+                <p class="Popular">Popular <span class="now">Now</span></p>
+            </div>
+        </header>
+       </div>
+    </div>
+
+
+    <main class="main-link">
+       <div class="main-tip">
+        <div class="order-link1" id="orde-link">
+            <img src="image/beligum waffels.avif" alt="">
+            <div class="star2">
+                <h4>4.5</h4>
+                <ion-icon name="star" class="star-yellow"></ion-icon>
+            </div>
+            <div class="hazelnut">
+                <p>waffles</p>
+                <h4>$ 10</h4>
+            </div>
+            <div class="hot-cold">
+                <div class="hot-side">
+                    <p class="hot">Hot</p>
+                <p class="cold">Cold</p>
+                </div>
+                <a href="https://www.google.com/" id="cafe-link"> <ion-icon name="cart-outline" class="cart2"></ion-icon></a>
+
+            </div>
+        </div>
+
+        <div class="order-link2"  id="orde-link">
+            <img src="image/latte-coffee-cup_1203-3395.jpg" alt="">
+            <div class="star2">
+                <h4>4.5</h4>
+                <ion-icon name="star" class="star-yellow"></ion-icon>
+            </div>
+            <div class="hazelnut">
+                <p>hazelnut latte</p>
+                <h4>$ 15</h4>
+            </div>
+            <div class="hot-cold">
+                <div class="hot-side">
+                    <p class="hot">Hot</p>
+                <p class="cold">Cold</p>
+                </div>
+                <a href="https://www.google.com/" id="cafe-link"> <ion-icon name="cart-outline" class="cart2"></ion-icon></a>
+
+            </div>
+        </div>
+
+        <div class="order-link3"   id="orde-link">
+            <img src="image/images (12).jpeg" alt="">
+            <div class="star2">
+                <h4>4.5</h4>
+                <ion-icon name="star" class="star-yellow"></ion-icon>
+            </div>
+            <div class="hazelnut">
+                <h3>Cappuccion</h3>
+                <h4>$ 30</h4>
+            </div>
+            <div class="hot-cold">
+                <div class="hot-side">
+                    <p class="hot">Hot</p>
+                     <p class="cold">Cold</p>
+                </div>
+                <a href="https://www.google.com/" id="cafe-link"> <ion-icon name="cart-outline" class="cart2"></ion-icon></a>
+
+            </div>
+        </div>
+       </div>
+
+       <div class="wrapper">
+        <h3>Special Menu <span>for you</span></h3>
+        <div class="line"></div>
+        <div id="search-container">
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Search product name here.."
+            />
+            <button id="search">Search</button>
+          </div>
+          <div id="buttons">
+            <button class="button-value" onclick="filterProduct('all')">All</button>
+            <button class="button-value" onclick="filterProduct('coffee')">
+              coffee
+            </button>
+            <button class="button-value" onclick="filterProduct('dessert')">
+              dessert
+            </button>
+            <button class="button-value" onclick="filterProduct('Drinks')">
+              Drinks
+            </button>
+            <button class="button-value" onclick="filterProduct('smoothies')">
+              smoothies
+            </button>
+          </div>
+          <div id="products"></div>
+         
+       </div>
+    </main>
+    
+    
+</div>
+<section class="about-us">
+  <div class="about-container">
+    <img src="image/coffee-preparation-concept-still-life_23-2150354610.jpg" alt="">
+    <div class="about-info">
+        <h2>About <span>Us</span></h2>
+        <div class="line"></div>
+        <h4>We provide quility coffee, <br> and ready to deliver</h4>
+        <p>we are a company that make and distribute <br> delious drinks. our main product is made witha <br> secert recipe and avaliable nationwide</p>
+    </div>
+  </div>
+  <div class="services-container">
+    <h3>How to use our delivery <span>service</span></h3>
+
+    <div class="servicer-info">
+        <div class="services-pack1">
+            <img src="image/images (14).jpeg" alt="coffee cup">
+            <h4>choose your coffee</h4>
+            <p>there are 20+ coffee for you</p>
+        </div>
+        <div class="services-pack2">
+            <img src="image/images (13).jpeg" alt="coffee cup">
+            <h4>we deliver it to you</h4>
+            <p>choose your delivery services</p>
+        </div>
+        <div class="services-pack3">
+            <img src="image/images (14).jpeg" alt="coffee cup">
+            <h4>enjoy your coffee</h4>
+            <p>choose delivery services</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="comment-container">
+    <div class="comment-info">
+        <div class="info123">
+            <h3>What they say about us</h3>
+        <p>We always provide the best services <br>and maintain the quality of <br> coffee</p>
+        </div>
+        <div class="comment-img">
+            <img src="image/african-american-young-woman-drinking-coffee-from-white-cup_23-2147936201.jpg" alt="drinking coffe">
+           <div class="image-info">
+            <h4>Naura</h4>
+            <p>I really love the Cappuccion, <br> the coffee was very smooth</p>
+           </div>
+        </div>
+    </div>
+
+  
+    <div class="comment-img1">
+        <img src="image/man-holding-glazed-donut-smiling_23-2150757739.jpg" alt="drinking coffe">
+        <div class="image-info1">
+            <h4>John</h4>
+        <p>The donut was soft and taste very nice</p>
+        </div>
+    </div>
+    <div class="comment-img3">
+        <img src="image/pleased-cute-african-american-young-woman-with-curly-hairstyle-holding-paper-cup-with-both-hands-closing-eyes-smiling-from-satisfaction_176420-23112.jpg" alt="drinking coffe">
+       <div class="image-info2">
+        <h4>Naura</h4>
+        <p>the coffee menu is great</p>
+       </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+        <h2>subscribe to get 50% discount price</h2>
+        <div class="input12">
+            <input type="text" placeholder="Email address">
+            <button class="input-button">Order now</button>
+        </div>
+  </footer>
+</section>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="script.js"></script>
+
+
+</script>
+</body>
+</html>
+

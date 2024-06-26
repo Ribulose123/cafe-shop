@@ -1,0 +1,266 @@
+
+.chechout-container{
+    display: flex;
+    width: 100%;
+}
+.check-out{
+    background-color: aliceblue;
+    width: 50%;
+    height: 80%;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+   
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.item-details {
+    flex: 1;
+    color: rgb(37, 17, 2);
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-container button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.quantity-container .quantity {
+    margin: 0 10px;
+}
+
+.quantity-container button:hover {
+    background-color: #ddd;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgb(37, 17, 2);
+}
+
+.total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    word-spacing: 270px;
+    padding: 20px;
+    color: rgb(37, 17, 2);
+    font-size: 20px;
+    background-color: orange;
+}
+
+.payment-options {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.payment-options h3 {
+    margin-bottom: 10px;
+}
+
+.payment-options label {
+    display: block;
+    margin: 5px 0;
+}
+
+.payment-icons img{
+    width: 200px;
+}
+.card-form {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.card-form.hide {
+    display: none;
+}
+
+.card-form h3 {
+    margin-bottom: 10px;
+}
+
+.card-form div {
+    margin-bottom: 10px;
+}
+
+.card-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.card-form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.card-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.card-form button:hover {
+    background-color: #45a049;
+}
+
+
+.card-payment{
+    background-color: white; 
+    width: 50%;
+    height: 60vh
+}
+#payment-options {
+    margin: 20px;
+  }
+
+  #payment-options h2{
+    font-family: sans-serif;
+    font-size: 30px;
+  }
+  
+  #payment-options label {
+    display: block;
+    margin: 10px 0;
+  }
+
+  #payment-options label input:checked{
+    width: 10px;
+    height: 10px;
+  }
+  
+  #card-form {
+    margin: 20px;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+   form label{
+    text-transform: uppercase;
+    font-size:15px;
+    font-family: sans-serif;
+   }
+
+   form input{
+    width: 70%;
+    padding: 1rem;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    color: rgb(37, 17, 2);
+    font-size: 13px;
+    font-family: sans-serif;
+   }
+
+    input::placeholder{
+        font-size: 20px;
+        font-family: sans-serif;
+        text-transform: capitalize;
+    }
+
+    .ccv-date{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ccv-date input{
+        width: 20%;
+    }
+
+    .ccv-date .dave{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dave div{
+        display: flex;
+        gap: 10px;
+    }
+
+    .ccv-date .ccc{
+        margin-right: 50%;
+        display: flex;
+        flex-direction: column;
+    }
+    .ccv-date .ccc input{
+        width: 80%;
+    }
+
+    .buttonontainer{
+        margin-top: 30px;
+        margin-left: 10px;
+        display: flex;
+        gap: 20px;
+    }
+    .Submit-card{
+        width: 20%;
+        background-color: orange;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        color: rgb(37, 17, 2);
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+
+    .Return{
+        width: 20%;
+        background-color: orange;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        color: rgb(37, 17, 2);
+        font-size: 20px;
+        font-family: sans-serif; 
+    }
+
+
+  
+  .hide {
+    display: none;
+  }
+  
+  .payment-icons img {
+    width: 50px;
+    margin-right: 10px;
+  }
+  
+  #submit-payment {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
