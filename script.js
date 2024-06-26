@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ]
     };
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let storedRatings = JSON.parse(localStorage.getItem("ratings")) || {};
 
     function renderProducts() {
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             let card = document.createElement("div");
-            card.classList.add("card", product.category.toLowerCase(), "hide");
+            card.classList.add("product-card", product.category.toLowerCase());
 
             // Image container
             let imgContainer = document.createElement("div");
@@ -65,31 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             container.appendChild(ratingContainer);
 
-            // Price and Cart
-            let cartPrices = document.createElement("div");
-            cartPrices.classList.add("cartPrices");
-
+            // Price
             let price = document.createElement("h6");
             price.innerText = "$" + product.price;
-            cartPrices.appendChild(price);
+            container.appendChild(price);
 
-            let cartE = document.createElement("div");
-            cartE.classList.add("cart-wheel");
-            let cartLink = document.createElement("a");
-            cartE.appendChild(cartLink);
-            let cartIcon = document.createElement("ion-icon");
-            cartIcon.classList.add("icon2");
-            cartLink.appendChild(cartIcon);
-            cartIcon.setAttribute("name", "cart-outline");
-            cartPrices.appendChild(cartE);
-
-            container.appendChild(cartPrices);
             card.appendChild(container);
-
-            cartE.addEventListener("click", (event) => {
-                event.stopPropagation();
-                addToCart(product);
-            });
 
             ratingContainer.addEventListener("click", (event) => {
                 if (event.target.classList.contains("rating-star")) {
@@ -103,41 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             productsContainer.appendChild(card);
         }
-    }
-
-    window.filterProduct = function(value) {
-        let buttons = document.querySelectorAll(".button-value");
-        buttons.forEach((button) => {
-            if (value.toUpperCase() == button.innerText.toUpperCase()) {
-                button.classList.add("active");
-            } else {
-                button.classList.remove("active");
-            }
-        });
-
-        let elements = document.querySelectorAll(".card");
-        elements.forEach((element) => {
-            if (value == "all") {
-                element.classList.remove("hide");
-            } else {
-                if (element.classList.contains(value.toLowerCase())) {
-                    element.classList.remove("hide");
-                } else {
-                    element.classList.add("hide");
-                }
-            }
-        });
-    }
-
-    function addToCart(item) {
-        cart.push(item);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        updateCartDisplay();
-    }
-
-    function updateCartDisplay() {
-        const cartCountElement = document.getElementById("cart-count");
-        cartCountElement.innerText = cart.length;
     }
 
     function calculateAverageRating(ratings) {
@@ -155,29 +100,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Search functionality
-    const searchInput = document.getElementById("search-input");
-    searchInput.addEventListener("input", (event) => {
-        const searchValue = event.target.value.toLowerCase();
-        let elements = document.querySelectorAll(".card");
-        elements.forEach((element) => {
-            const productName = element.querySelector(".product-name").innerText.toLowerCase();
-            if (productName.includes(searchValue)) {
-                element.classList.remove("hide");
-            } else {
-                element.classList.add("hide");
-            }
-        });
-    });
-
     renderProducts();
-    filterProduct("all");
-    updateCartDisplay();
-
-    const navToggle = document.getElementById("navToggle");
-    const navMenu = document.getElementById("navMenu");
-
-    navToggle.addEventListener("click", function() {
-        navMenu.classList.toggle("active");
-    });
 });
