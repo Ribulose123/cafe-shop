@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let stars = ratingContainer.querySelectorAll(".rating-star");
         stars.forEach((star, index) => {
             star.setAttribute("name", index < averageRating ? "star" : "star-outline");
-            star.style.color = index < averageRating ? "gold" : "grey";
+            star.style.color = index < averageRating ? "gold" : "white";
         });
     }
 
