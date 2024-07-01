@@ -492,6 +492,8 @@ body{
     margin-right: 10px;
     position: absolute;
     left: -7rem;
+    /* gap: 0px 10px; */
+    padding: 1rem;
  }
 .card {
   background-color: white;
@@ -562,10 +564,13 @@ body{
 
   .container .cartPrices{
     display: flex;
-    justify-content: space-around;
+    justify-content:flex-end;
     align-items: center;
-    margin-right: 12rem;
-    gap: 12rem;
+    margin-right: -0.5rem;
+    margin-top: 1rem;
+    position: relative;
+    top: -2.3rem;
+    gap: 1rem;
   }
 
   .cartPrices .cart-wheel a{
@@ -615,7 +620,7 @@ body{
 }
 
 .about-us{
-   margin-top: 125%;
+   margin-top: 110%;
  
 }
 
@@ -634,13 +639,13 @@ body{
     height: 300px;
     position: absolute;
     left: 250px;
-    top: 2950px;
+    top: 2750px;
 }
 
 .about-info{
     margin-left: 200px;
     line-height: 20px;
-    margin-top: 5opx;
+    margin-top: 5px;
 }
 
 .about-info h2{
@@ -785,6 +790,10 @@ body{
     border-radius: 10px;
    /*  border: 5px solid rgb(77, 38, 38); */
     padding: 15px;
+}
+
+.image-info2{
+    padding: 20px;
 }
 
 .image-info h4, .image-info1 h4,

@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ]
     };
 
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let storedRatings = JSON.parse(localStorage.getItem("ratings")) || {};
 
     function renderProducts() {
@@ -65,16 +66,39 @@ document.addEventListener("DOMContentLoaded", () => {
             container.appendChild(ratingContainer);
 
             // Price
+            let cartPrices = document.createElement("div");
+            cartPrices.classList.add("cartPrices");
+
             let price = document.createElement("h6");
             price.innerText = "$" + product.price;
-            container.appendChild(price);
+            cartPrices.appendChild(price);
 
+            let cartE = document.createElement("div");
+            cartE.classList.add("cart-wheel");
+            let cartLink = document.createElement("a");
+            cartE.appendChild(cartLink);
+            let cartIcon = document.createElement("ion-icon");
+            cartIcon.classList.add("icon2");
+            cartLink.appendChild(cartIcon);
+            cartIcon.setAttribute("name", "cart-outline");
+            cartPrices.appendChild(cartE);
+
+            container.appendChild(cartPrices);
             card.appendChild(container);
+
+            cartE.addEventListener("click", (event) => {
+                event.stopPropagation();
+                addToCart(product);
+            });
 
             ratingContainer.addEventListener("click", (event) => {
                 if (event.target.classList.contains("rating-star")) {
                     let ratingIndex = parseInt(event.target.dataset.index);
-                    product.ratings.push(ratingIndex); // Add new rating
+                    if (product.ratings.includes(ratingIndex)) {
+                        product.ratings = product.ratings.filter(r => r !== ratingIndex);
+                    } else {
+                        product.ratings.push(ratingIndex);
+                    }
                     storedRatings[product.productName] = product.ratings;
                     localStorage.setItem("ratings", JSON.stringify(storedRatings));
                     updateAverageRating(ratingContainer, product.ratings);
@@ -96,9 +120,61 @@ document.addEventListener("DOMContentLoaded", () => {
         let stars = ratingContainer.querySelectorAll(".rating-star");
         stars.forEach((star, index) => {
             star.setAttribute("name", index < averageRating ? "star" : "star-outline");
-            star.style.color = index < averageRating ? "gold" : "white";
+            star.style.color = index < averageRating ? "gold" : "grey";
         });
     }
 
+    window.filterProduct = function(value) {
+        let buttons = document.querySelectorAll(".button-value");
+        buttons.forEach((button) => {
+            if (value.toUpperCase() == button.innerText.toUpperCase()) {
+                button.classList.add("active");
+            } else {
+                button.classList.remove("active");
+            }
+        });
+
+        let elements = document.querySelectorAll(".product-card");
+        elements.forEach((element) => {
+            if (value == "all") {
+                element.classList.remove("hide");
+            } else {
+                if (element.classList.contains(value.toLowerCase())) {
+                    element.classList.remove("hide");
+                } else {
+                    element.classList.add("hide");
+                }
+            }
+        });
+    }
+
+    function addToCart(item) {
+        cart.push(item);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+        const cartCountElement = document.getElementById("cart-count");
+        cartCountElement.innerText = cart.length;
+    }
+
+    // Search functionality
+    const searchInput = document.getElementById("search-input");
+    searchInput.addEventListener("input", (event) => {
+        const searchValue = event.target.value.toLowerCase();
+        let elements = document.querySelectorAll(".product-card");
+        elements.forEach((element) => {
+            const productName = element.querySelector(".product-name").innerText.toLowerCase();
+            if (productName.includes(searchValue)) {
+                element.classList.remove("hide");
+            } else {
+                element.classList.add("hide");
+            }
+        });
+    });
+
     renderProducts();
+    filterProduct("all");
+    updateCartDisplay();
 });
